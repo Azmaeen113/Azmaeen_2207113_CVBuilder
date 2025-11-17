@@ -1,0 +1,62 @@
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cvbuilder</groupId>
+    <artifactId>cv-builder</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>cv-builder</name>
+    <description>JavaFX CV Builder starter project</description>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+        <javafx.version>21.0.3</javafx.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>com.cvbuilder.Main</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>com.cvbuilder.Main</mainClass>
+                    <executable>java</executable>
+                    <commandlineArgs>--module-path "${project.build.directory}/classes;${settings.localRepository}/org/openjfx/javafx-controls/${javafx.version}/javafx-controls-${javafx.version}-win.jar;${settings.localRepository}/org/openjfx/javafx-graphics/${javafx.version}/javafx-graphics-${javafx.version}-win.jar;${settings.localRepository}/org/openjfx/javafx-base/${javafx.version}/javafx-base-${javafx.version}-win.jar;${settings.localRepository}/org/openjfx/javafx-fxml/${javafx.version}/javafx-fxml-${javafx.version}-win.jar" --add-modules javafx.controls,javafx.fxml -cp "${project.build.directory}/classes" ${mainClass}</commandlineArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
