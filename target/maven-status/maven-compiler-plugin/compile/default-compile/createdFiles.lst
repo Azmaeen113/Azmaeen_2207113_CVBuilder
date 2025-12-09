@@ -1,1 +1,9 @@
+com\cvbuilder\models\CVData$WorkExperienceEntry.class
 com\cvbuilder\Main.class
+com\cvbuilder\controllers\DataEntryController.class
+com\cvbuilder\models\CVData$EducationEntry.class
+com\cvbuilder\models\CVData$ProjectEntry.class
+com\cvbuilder\controllers\PreviewController.class
+com\cvbuilder\models\CVData.class
+com\cvbuilder\controllers\HomeController.class
+com\cvbuilder\utils\ValidationUtils.class
